@@ -20,7 +20,7 @@ steps:
 - name: push-latest-build
   image: plugins/docker
   settings:
-    repo: lblod/besluit-publicatie-publish-service
+    repo: lblod/gn-agendapoint-service
     username:
       from_secret: docker_username
     password:
@@ -36,12 +36,12 @@ steps:
 - name: build-dry-run
   image: plugins/docker
   settings:
-    repo: lblod/besluit-publicatie-publish-service
+    repo: lblod/gn-agendapoint-service
     dry_run: true
 - name: push-tagged-build
   image: plugins/docker
   settings:
-    repo: lblod/besluit-publicatie-publish-service
+    repo: lblod/gn-agendapoint-service
     tags: ${DRONE_TAG##v}
     username:
       from_secret: docker_username
