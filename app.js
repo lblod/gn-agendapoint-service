@@ -3,11 +3,11 @@ import { getEditorDocument, createEditorDocument } from './util/queries'
 import { processContent } from './util/contentProcessing'
 
 
-app.post('/:agendapointUuid/copy', (req, res) => {
+app.post('/:agendapointUuid/copy', async (req, res) => {
   const uuid = req.params.agendapointUuid;
-  const editorDocument = getEditorDocument(uuid);
+  const editorDocument = await getEditorDocument(uuid);
   const processedContent = processContent(editorDocument.content);
   const finalTitle = `Copy of ${editorDocument.title}`;
-  const uuidOfNewDocument = createEditorDocument(finalTitle, processedContent)
+  const uuidOfNewDocument = await createEditorDocument(finalTitle, processedContent)
   res.json({uuid: uuidOfNewDocument});
 })
