@@ -19,7 +19,6 @@ export async function getEditorDocument(uuid) {
         dct:title ?title.
     }
   `);
-  console.log(queryResult.results)
   if (queryResult.results.bindings.length === 0) {
     throw new Error(`Editor document with uuid: ${uuid} not found`)
   }
