@@ -55,5 +55,5 @@ export async function createEditorDocument(title, content) {
         pav:hasVersion ${sparqlEscapeUri(editorDocumentUri)}.
     }
   `);
-  return documentContainerUri;
+  return documentContainerUuid;
 }
