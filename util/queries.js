@@ -20,7 +20,7 @@ export async function getEditorDocument(uuid) {
     }
   `);
   if (queryResult.results.bindings.length === 0) {
-    throw new Error(`Editor document with uuid: ${uuid} not found`)
+    throw new Error(`Editor document with uuid: ${uuid} not found`);
   }
   const queryResultObject = queryResult.results.bindings[0];
   return {
