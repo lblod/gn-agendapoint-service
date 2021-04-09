@@ -30,7 +30,7 @@ export async function getEditorDocument(uuid) {
   }
 }
 
-export async function createEditorDocument(title, content) {
+export async function createEditorDocument(title, content, previousDocumentUri) {
   const editorDocumentUuid = uuid();
   const editorDocumentUri = `http://data.lblod.info/id/editor-documents/${editorDocumentUuid}`;
   const documentContainerUuid = uuid();
@@ -52,7 +52,8 @@ export async function createEditorDocument(title, content) {
         pav:hasCurrentVersion ${sparqlEscapeUri(editorDocumentUri)};
         ext:editorDocumentStatus ${sparqlEscapeUri(CONCEPT_STATUS_URI)};
         ext:editorDocumentFolder ${sparqlEscapeUri(AGENDAPOINT_FOLDER_URI)};
-        pav:hasVersion ${sparqlEscapeUri(editorDocumentUri)}.
+        pav:hasVersion ${sparqlEscapeUri(editorDocumentUri)};
+        pav:derivedFrom ${sparqlEscapeUri(previousDocumentUri)}.
     }
   `);
   return documentContainerUuid;

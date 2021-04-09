@@ -8,6 +8,6 @@ app.post('/:agendapointUuid/copy', async (req, res) => {
   const editorDocument = await getEditorDocument(uuid);
   const processedContent = processContent(editorDocument.content);
   const finalTitle = `Copy of ${editorDocument.title}`;
-  const uuidOfNewDocument = await createEditorDocument(finalTitle, processedContent);
+  const uuidOfNewDocument = await createEditorDocument(finalTitle, processedContent, editorDocument.uri);
   res.json({uuid: uuidOfNewDocument});
 })
