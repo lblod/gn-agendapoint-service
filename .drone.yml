@@ -52,7 +52,15 @@ trigger:
   event:
     - tag
 ---
+kind: secret
+name: docker_username
+data: jRjmiAlw0FYZvm/Exly3MzCVHhore8ft74F3zOPVTuTIFKD0LNm7ng==
+---
+kind: secret
+name: docker_password
+data: /njwYBU8FwWP7fi7cIYGSDQkjHFm2ZwaT0f2xpFbaQPhwHcGQLg/TbWiKFLwPFuqPaw1z5z9nUcC9jDrr/iFDg==
+---
 kind: signature
-hmac: 275afb689a1a3d4e5140bc15b4730dc4c5e6e55a838152ab456255fec2c499ee
+hmac: 28c18e02597b58bd7ecd0f91719e03770a0ac0911c1a4d3bbf9f4242b7485ab3
 
 ...
