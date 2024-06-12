@@ -6,7 +6,7 @@ export function processContent(content) {
   let contentProcessing = content;
   const alreadyReplaced = {};
   for(const uri of urisToRegenerate) {
-    const regex = new RegExp(`"${uri}[^"]*"`);
+    const regex = new RegExp(`"${uri}[^"]*"`, 'g');
     contentProcessing = contentProcessing.replace(regex, (match) => {
       if(alreadyReplaced[match]) {
         return alreadyReplaced[match];
